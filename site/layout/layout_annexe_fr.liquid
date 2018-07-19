@@ -2,28 +2,30 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    {% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}
+    {% if page.seo_title != "" %}
+      <title>{{ page.seo_title }}</title>
+    {% else %}
+      <title>{{ event.name }}</title>
+    {% endif %}
     {{ csrf_meta_tag }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="{{page.seo_description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="_G-Af-_71vw8unopqAcVgPTNAM8vvLtuOKTMIZvfivA" />
-    <meta name="google-site-verification" content="O2-hi7GbUMjifjzefBrXXES2HzddXs130jI89pTq89g" /><!--applidget-->
-    <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
     {% assign baseurl = event.custom_domain_with_protocol %}
-    <link rel="Canonical" href="{{baseurl}}" />
-    <link rel="alternate" hreflang="fr" href="{{baseurl}}" />
-    <link rel="alternate" hreflang="x-default" href="{{baseurl}}" />
-    <link rel="alternate" hreflang="en" href="{{baseurl}}/en/" />
+    <link rel="Canonical" href="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" />
+    {% comment %}<link hreflang="fr" href="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" />{% endcomment %}
+    <link rel="alternate" href="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" hreflang="x-default" />
+    <link rel="alternate" hreflang="en" href="{{baseurl}}/en/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" />
+    <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
     <meta  name="og:titleog:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
     <meta  name="og:typeog:type"  content="website"/>
-    <meta  name="og:urlog:url"  content="{{baseurl}}"/>
+    <meta  name="og:urlog:url"  content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
     <meta name="og:site_name" content="Eventmaker"/>
     <meta name="og:description" content="{{page.seo_description}}"/>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@Eventmakerio">
-    <meta name="twitter:url" content="{{baseurl}}">
+    <meta name="twitter:url" content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}">
     <meta name="twitter:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}">
     <meta name="twitter:description" content="{{page.seo_description}}">
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
@@ -37,47 +39,39 @@
       gtag('js', new Date());
       gtag('config', 'UA-20747305-6');
     </script>
+
     <!-- plugins -->
-    {{ 'bundle.css' | stylesheet_tag }}
+    {{ 'bundle.min.css' | stylesheet_tag }}
     <!--main css file-->
     {{ 'style.css' | stylesheet_tag }}
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- Editbale generaux -->
+    <!-- Editable generaux -->
     {% capture logo %}{% editable_file 'Logo menu', priority: 100 %}{% endeditable_file %}{% endcapture %}
     {% capture logo_scroll %}{% editable_file 'Logo menu au scroll', priority: 100 %}{% endeditable_file %}{% endcapture %}
-    {% capture background_banner %}{% editable_file "Bannière", priority: 99 %}{% endeditable_file %}{% endcapture %}
-    {% capture lien_bouton_banner %}{% editable_text "Lien bouton sur bannière", priority: 99 %}#{% endeditable_text %}{% endcapture %}
-    {% capture screenshot_banner %}{% editable_file "Screenshot sur bannière", priority: 99 %}{% endeditable_file %}{% endcapture %}
     {% capture facebook %}{% editable_text "Lien Facebook", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture twitter %}{% editable_text "Lien Twitter", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture googleplus %}{% editable_text "Lien Google+", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture linkedin %}{% editable_text "Lien Linkedin", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture rss %}{% editable_text "Lien RSS", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture youtube %}{% editable_text "Lien YouTube", priority: 20 %}{% endeditable_text %}{% endcapture %}
-    {% capture copyright %}{% editable_text "Copyright", priority: 15 %}&copy; Copyright 2016 - 2020 {% endeditable_text %}{% endcapture %}
-    {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %}Nous utilisons des cookies pour améliorer votre expérience {% endeditable_text %}{% endcapture %}
-    {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} en savoir plus {% endeditable_text %}{% endcapture %}
-    {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} donnees-personnelles {% endeditable_text %}{% endcapture %}
-    <!-- Editable FR -->
-    {% capture title_banner %}{% editable_text "Titre sur bannière", priority: 98 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
-    {% capture text_banner %}{% editable_text "Texte sur bannière", priority: 98 %}Create a website that will impress your clients & visitors{% endeditable_text %}{% endcapture %}
-    {% capture text_bouton_banner %}{% editable_text "Texte bouton sur bannière", priority: 98 %}Try{% endeditable_text %}{% endcapture %}
-    {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque efficitur turpis, vitae dictum dolor tristique in.</p>{% endeditable_text %}{% endcapture %}
-    {% capture title_reference %}{% editable_text "Titre section Références", priority: 50 %}Our worldwide partners.{% endeditable_text %}{% endcapture %}
-    {% capture text_reference %}{% editable_text "Texte section Références", priority: 49, type: cktext_area %}<p>Over 500,000 Customers worldwide</p>{% endeditable_text %}{% endcapture %}
-    <style>.hero-static-image {background: url('{{background_banner}}') no-repeat;background-size: cover;}</style>
+    {% capture copyright %}{% editable_text "Copyright", priority: 15 %}&copy; Copyright 2016 - 2018 {% endeditable_text %}{% endcapture %}
+    {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Vous souhaitez une démo ? Un devis ? Contactez notre équipe commerciale au +33 (0)1 85 09 75 73 ou sur ecrire@eventmaker.io</p>{% endeditable_text %}{% endcapture %}
+
   </head>
   <body>
-    <div id="preloader"><div id="preloader-inner"></div></div>
-    <!--/preloader-->
+    <div id="preloader">
+      <div id="preloader-inner"></div>
+    </div><!--/preloader-->
     <!--back to top-->
     <a href="#" class="scrollToTop"><i class="ion-ios-arrow-up"></i></a>
     <!--back to top end-->
+
     <!-- Static navbar -->
     <nav class="navbar navbar-toggleable-md navbar-light fixed-top  navbar-transparent clearfix">
       <div class="clearfix"></div>
@@ -86,7 +80,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/home">
-          <img data-src="{{logo}}" alt="Eventmker logo" class="logo logo-default">
+          <img data-src="{{logo}}" alt="Eventmaker logo" class="logo logo-default">
           <img data-src="{{logo_scroll}}" alt="Eventmaker logo" class="logo logo-scroll">
         </a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -97,65 +91,26 @@
               <li class="nav-item">
                 {% if item.name == 'Blog' %}
                   <a class="nav-item-mobil {% if page_path == item_url %}btn btn-primary btn-rounded{% endif %} nav-link" href="{{item.url}}" target="_blank" title="{{item.name}}">{{ item.name }}</a>
-                {% elsif item.name == 'Pricing' %}
-                  <a class="nav-item-mobil {% if page_path == item_url %}btn btn-primary btn-rounded{% endif %} nav-link" href="/#pricing" title="{{item.name}}">{{ item.name }}</a>
+                {% elsif item.url == "/en/home" %}
+                  <a id="en" class="nav-item-mobil {% if page_path == item_url %}btn btn-primary btn-rounded{% endif %} nav-link flag" href="#" title="{{item.name}}">{{ item.name }}</a>
                 {% else %}
                   <a class="nav-item-mobil {% if page_path == item_url %}btn btn-primary btn-rounded{% endif %} nav-link" href="{{item.url}}" title="{{item.name}}">{{ item.name }}</a>
                 {% endif %}
               </li>
             {% endfor %}
             <li class="nav-item">
-            <a class="nav-item-mobil nav-link" href="{{baseurl}}/en" title="English">EN</a>
+            <a class="nav-item-mobil nav-link" href="{{baseurl}}/en/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" title="English">EN</a>
             </li>
           </ul>
         </div>
       </div>
     </nav><!--navbar end-->
-    <section class="hero-static-image">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 offset-md-1 text-center">
-            <h1>{{title_banner}}</h1>
-            <p class="lead margin-b-30">
-              {{text_banner}}
-            </p>
-            <div class="buttons">
-              <a href="{{lien_bouton_banner}}" class="btn btn-xl btn-primary">{{text_bouton_banner}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img data-src="{{screenshot_banner}}" alt="Eventmaker bannière" class="screenshot-banner img-responsive center-img">
-    </section>
-    <!--intro section end-->
-    <!-- <div class="container"> -->
-    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
-    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+
     {{ content }}
     <!-- </div> -->
-    <div class='container' id="references">
-      <div class="space-90"></div>
-      <div class="center-title">
-        <h2>{{title_reference}}</h2>
-        {{text_reference}}
-      </div>
-      <ul class="row list-unstyled partners-list">
-        {% assign sorted_all_articles = collections.articles | sort:'rank' %}
-        {% assign count_reference = 0 %}
-        {% for article in sorted_all_articles %}
-          {% if article.type == "cas_clients" %}
-            <li class="col-md-2 col-sm-4 col-6">
-              <img data-src="{{article.illustration}}" class="img-fluid" alt="{{article.titre}}">
-            </li>
-            {% assign count_reference = count_reference | plus: 1 %}
-            {% if count_reference >= 48 %}
-              {% break %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
+
     <div class="space-70"></div>
+
     <footer class="footer">
       <div class="space-50"></div>
       <div class="container">
@@ -166,7 +121,7 @@
                 <img data-src="{{logo}}" alt="Eventmaker logo" class="logo">
               </a>
           </div>
-          <div class="col-md-2 col-6">
+          <div class="col-md-2">
             <ul class="list-unstyled">
               {% for item in menus.menu_principal %}
               {% if forloop.index <= 4 %}
@@ -175,7 +130,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-md-2 col-6">
+          <div class="col-md-2">
             <ul class="list-unstyled">
               {% for item in menus.menu_principal %}
               {% if forloop.index > 4 %}
@@ -223,32 +178,27 @@
 
       <div class="space-20"></div>
     </footer>
-    <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <div class="cookie fixed-bottom">Nous utilisons des cookies pour améliorer votre expérience <a href=""><u>en savoir plus</u></a> <a class="btn btn-primary">OK</a></div>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    {% comment %}<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>{% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
     {{ 'base.js' | javascript_tag }}
     {% comment %}{{ 'tools.js' | javascript_tag }}{% endcomment %}
+
     <!-- jQuery plugins-->
-    {% comment %}{{ 'plugins.light.js' | javascript_tag }}{% endcomment %}
     {{ 'plugins.js' | javascript_tag }}
     {{ 'template-custom.js' | javascript_tag }}
-   <script src="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/js/main.js"></script>
+    <script src="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/js/main.js"></script>
     <!--<script>
       window.intercomSettings = {
         app_id: "sc88gz64",
         "visit_eventmaker_website" : true // Boolean
       };
     </script>-->
-    <!--Google analytics-->
     <!--<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/sc88gz64';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
     </script>-->
-    <!--mailchimp-->
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e6b43f0d1cea595d9e6bae088/42620318e8df6a88fcb13e77c.js");</script>
-    <!--linkedin -->
     <script type="text/javascript">
       _linkedin_data_partner_id = "87460";
     </script>
@@ -260,16 +210,29 @@
       s.parentNode.insertBefore(b, s);})();
     </script>
     <script type="text/javascript">
-      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"af5efb8344f61f062f0fad793b35b9d7626c571ba5486de1688cc5e0e9b595b1", values:{},ready:function(){$zoho.salesiq.floatbutton.visible('hide');}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+      _linkedin_data_partner_id = "87460";
     </script>
-    <!--<script type="text/javascript">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"af5efb8344f61f062f0fad793b35b9d7626c571ba5486de1688cc5e0e9b595b1", values:{},ready:function(){$zoho.salesiq.floatbutton.visible('hide');}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script>
-    <script>
-      new LazyLoad();
+    <script type="text/javascript">
+      (function(){var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript";b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})();
     </script>
     <noscript>
       <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=87460&fmt=gif" />
     </noscript>
+    <noscript>
+      <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=87460&fmt=gif" />
+    </noscript>
+    <script type="text/javascript">
+      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"af5efb8344f61f062f0fad793b35b9d7626c571ba5486de1688cc5e0e9b595b1", values:{},ready:function(){$zoho.salesiq.floatbutton.visible('hide');}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+    </script>
+    <script type="text/javascript">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"af5efb8344f61f062f0fad793b35b9d7626c571ba5486de1688cc5e0e9b595b1", values:{},ready:function(){$zoho.salesiq.floatbutton.visible('hide');}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script>
+    <script>
+      new LazyLoad();
+    </script>
   </body>
 </html>
 {% endcapture %}{{ html | strip_newlines | replace:'	','' | replace:'    ','' | replace:'  ',' ' }}
