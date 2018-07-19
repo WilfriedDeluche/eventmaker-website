@@ -1,3 +1,19 @@
+{% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
+
+<div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
+      <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
+      <div class=" parallax-text center-it page-title text-center">
+        <h1 class="">{% editable_text 'Titre pricing', priority: 98 %}Des offres adaptées aux budgets des Event Managers{% endeditable_text %}</h1>
+        <p>{% editable_text 'Sous-titre pricing', priority: 98 %}Les plans ci-dessous ont été pensés pour tous les events et tous les budgets.{% endeditable_text %}</p>
+      </div>
+    </div><!--end page header-->
+
+    <!-- <div class="container"> -->
+    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
+    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+<div class="container">
+  <div class="row">
+{% comment %}
 <section class="pricing-section">
   <div class="space-90"></div>
   <div class="container">
@@ -5,7 +21,9 @@
       <h2>{% editable_text 'Titre pricing', priority: 98 %}Easy plans. Cancel anytime.{% endeditable_text %}</h2>
       <p>{% editable_text 'Sous-titre pricing', priority: 98 %}Les plans ci-dessous ont été pensés pour tous les events et tous les budgets.{% endeditable_text %}</p>
     </div>
+
     <div class="row">
+    {% endcomment %}
       {% assign sorted_all_plans = collections.plans | sort:'rank' %}
       {% assign sorted_plans_articles = collections.plans_articles | sort:'rank' %}
       {% for plan in sorted_all_plans %}
@@ -30,11 +48,11 @@
             {% assign articlerank = article.rank | plus: 2  %}
             {% assign loop_length = loop_length | plus: 2  %}
             {% assign opacity = articlerank | divided_by: loop_length  %}
-            {% if plan.featured == "best-plan" %}
+            {% if plan.featured == "best-plan" or plan.featured == "bestplan" %}
               {% assign r = 0 %}
               {% assign g = 150 %}
               {% assign b = 136 %}
-            {% elsif plan.featured == "better-plan" %}
+            {% elsif plan.featured == "better-plan" or plan.featured == "betterplan"%}
               {% assign r = 255 %}
               {% assign g = 82 %}
               {% assign b = 82 %}

@@ -1,3 +1,18 @@
+{% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
+{% capture title_banner %}{% editable_text "Titre sur bannière", priority: 99 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
+
+<div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
+      <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
+      <div class=" parallax-text center-it page-title text-center">
+        <h1 class="">{{ title_banner }}</h1>
+        <p>{% editable_text 'Sous-titre bannière', priority: 98 %}Les plans ci-dessous ont été pensés pour tous les events et tous les budgets.{% endeditable_text %}</p>
+      </div>
+    </div><!--end page header-->
+
+    <!-- <div class="container"> -->
+    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
+    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+
 <div class='grey-bg'>
   <div class="space-90"></div>
   <div class="container">

@@ -1,0 +1,129 @@
+{% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
+{% capture title_banner %}{% editable_text "Titre sur bannière", priority: 99 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
+
+<div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
+      <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
+      <div class=" parallax-text center-it page-title text-center">
+        <h1 class="">{{ title_banner }}</h1>
+      </div>
+    </div><!--end page header-->
+
+    <!-- <div class="container"> -->
+    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
+    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+
+<div class="space-90"></div>
+<div class="container">
+  <div class="row col-md-12">
+
+    {% comment %}
+    <br><h2>CLIENTS</h2>
+    <ul class="list-unstyled row col-md-12">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_articles %}
+        {% if article.type == "cas_clients" %}
+          <li class="col-md-6">
+            <a href="">{{article.titre_en}}</a>
+          </li>
+          {% assign count_reference = count_reference | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <br>{% endcomment %}
+    <br><h2>Features</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+    {% for article in sorted_all_articles  %}
+      {% if article.type == "features" %}
+        {% assign sorted_all_features = collections.features | sort:'rank' %}
+        {% for feature in sorted_all_features %}
+          {% if feature.slug and article.slug and feature.parent_feature_slug == article.slug and feature.rank == "1" %}
+            {% assign feature_uid = feature.slug %}
+          {% endif %}
+        {% endfor %}
+        <li class="col-md-6">
+              <a href="{% if article.bouton_lien == "" %}/en/features/{{feature_uid}}{% else %}{{article.bouton_lien}}{% endif %}" title="{{article.titre_en}}">{{article.titre_en}}</a>
+          </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+    {% comment %}
+    <div class="space-40"></div>
+    <h2>Fonctionnalités</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_features = collections.features | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_features %}
+          {% if article.titre_en != "" %}
+          <li class="col-md-6">
+            <a href="{{article.link}}">{{article.titre_en}}</a>
+          </li>
+          {% endif %}
+
+          {% assign count_reference = count_reference | plus: 1 %}
+
+      {% endfor %}
+    </ul>{% endcomment %}
+    <div class="space-40"></div>
+    <h2>Ressources</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_articles %}
+        {% if article.type == "ressources" %}
+          <li class="col-md-6">
+            <a href="{{article.link}}">{{article.titre_en}}</a>
+          </li>
+          {% assign count_reference = count_reference | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="space-40"></div>
+    <h2>Services</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_articles %}
+        {% if article.type == "services" %}
+          <li class="col-md-6">
+            <a href="{{baseurl}}/en/services/{{article.slug}}">{{article.titre_en}}</a>
+          </li>
+          {% assign count_reference = count_reference | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% comment %}
+    <div class="space-40"></div>
+    <h2>Jobs</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_articles %}
+        {% if article.type == "joboffers" %}
+          <li class="col-md-6">
+            <a href="{{baseurl}}/en/joboffer/{{article.slug}}">{{article.titre_en}}</a>
+          </li>
+          {% assign count_reference = count_reference | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% endcomment %}
+    <div class="space-40"></div>
+    <h2>Type of Events</h2><div class="space-10"></div>
+    <ul class="row list-unstyled w-100">
+      {% assign sorted_all_articles = collections.articles | sort:'rank' %}
+      {% assign count_reference = 0 %}
+      {% for article in sorted_all_articles %}
+        {% if article.type == "events_type" %}
+          <li class="col-md-6">
+            <a href="{{baseurl}}/en/events/{{article.slug}}">{{article.titre_en}}</a>
+          </li>
+          {% assign count_reference = count_reference | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  </div>
+  <div class='space-60'></div>
+</div>
