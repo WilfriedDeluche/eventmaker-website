@@ -21,7 +21,6 @@
     <meta  name="og:titleog:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
     <meta  name="og:typeog:type"  content="website"/>
     <meta  name="og:urlog:url"  content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
-    <meta name="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
     <meta name="og:site_name" content="Eventmaker"/>
     <meta name="og:description" content="{{page.seo_description}}"/>
     <meta name="twitter:card" content="summary">
@@ -29,7 +28,6 @@
     <meta name="twitter:url" content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}">
     <meta name="twitter:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}">
     <meta name="twitter:description" content="{{page.seo_description}}">
-    <meta name="twitter:image" content="https://example.com/image.jpg">
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
     <!-- BOOTSTRAP 4  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">

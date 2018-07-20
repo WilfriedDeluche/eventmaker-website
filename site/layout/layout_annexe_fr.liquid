@@ -62,7 +62,9 @@
     {% capture youtube %}{% editable_text "Lien YouTube", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture copyright %}{% editable_text "Copyright", priority: 15 %}&copy; Copyright 2016 - 2018 {% endeditable_text %}{% endcapture %}
     {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Vous souhaitez une démo ? Un devis ? Contactez notre équipe commerciale au +33 (0)1 85 09 75 73 ou sur ecrire@eventmaker.io</p>{% endeditable_text %}{% endcapture %}
-
+    {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %}Nous utilisons des cookies pour améliorer votre expérience {% endeditable_text %}{% endcapture %}
+    {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} en savoir plus {% endeditable_text %}{% endcapture %}
+    {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} donnees-personnelles {% endeditable_text %}{% endcapture %}
   </head>
   <body>
     <div id="preloader">
@@ -178,7 +180,7 @@
 
       <div class="space-20"></div>
     </footer>
-    <div class="cookie fixed-bottom">Nous utilisons des cookies pour améliorer votre expérience <a href=""><u>en savoir plus</u></a> <a class="btn btn-primary">OK</a></div>
+    <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

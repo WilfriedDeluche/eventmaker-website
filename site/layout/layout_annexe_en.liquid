@@ -24,7 +24,7 @@
     <link rel="alternate" hreflang="fr" href="{{baseurl}}/{{page.path_name | remove: "en/"}}" />
     <link rel="alternate" hreflang="x-default" href="{{baseurl}}/{{page.path_name | remove: "en/"}}" />
     {% endif %}
-        <meta  name="og:titleog:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
+    <meta  name="og:titleog:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
     <meta  name="og:typeog:type"  content="website"/>
     <meta  name="og:urlog:url"  content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
     <meta name="og:site_name" content="Eventmaker"/>
