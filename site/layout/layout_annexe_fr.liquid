@@ -18,9 +18,9 @@
     <link rel="alternate" href="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" hreflang="x-default" />
     <link rel="alternate" hreflang="en" href="{{baseurl}}/en/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" />
     <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
-    <meta  name="og:titleog:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
-    <meta  name="og:typeog:type"  content="website"/>
-    <meta  name="og:urlog:url"  content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
+    <meta name="og:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
+    <meta name="og:type"  content="website"/>
+    <meta name="og:url"  content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
     <meta name="og:site_name" content="Eventmaker"/>
     <meta name="og:description" content="{{page.seo_description}}"/>
     <meta name="twitter:card" content="summary">
