@@ -1,16 +1,15 @@
 {% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
 
 <div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
-      <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
-      <div class=" parallax-text center-it page-title text-center">
-        <h1 class="">{% editable_text 'Titre pricing', priority: 98 %}Easy plans. Cancel anytime.{% endeditable_text %}</h1>
-        <p>{% editable_text 'Sous-titre pricing', priority: 98 %}All Plans Include a 14 day free trail{% endeditable_text %}</p>
-      </div>
-    </div><!--end page header-->
-
-    <!-- <div class="container"> -->
-    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
-    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+  <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
+  <div class=" parallax-text center-it page-title text-center">
+    <h1 class="">{% editable_text 'Titre pricing', priority: 98 %}Easy plans. Cancel anytime.{% endeditable_text %}</h1>
+    <p>{% editable_text 'Sous-titre pricing', priority: 98 %}All Plans Include a 14 day free trail{% endeditable_text %}</p>
+  </div>
+</div><!--end page header-->
+<!-- <div class="container"> -->
+{% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
+{% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
 <div class="container">
   <div class="row">
 {% comment %}
@@ -23,7 +22,6 @@
     </div>
     <div class="row">
     {% endcomment %}
-
       {% assign sorted_all_plans = collections.plans | sort: 'rank' %}
       {% assign sorted_plans_articles = collections.plans_articles | sort: 'rank' %}
       {% for plan in sorted_all_plans %}

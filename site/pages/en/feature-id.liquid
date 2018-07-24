@@ -1,6 +1,5 @@
 {% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
 {% assign sorted_feature_articles = collections.features | sort: 'rank' %}
-
 {% assign sorted_all_articles = collections.articles | sort: 'rank' %}
 {% for article in sorted_all_articles %}
   {% if article.slug == custom_entry.parent_feature_slug %}
@@ -8,7 +7,6 @@
     {% assign article_text = article.text_en %}
   {% endif %}
 {% endfor %}
-
 <div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
       <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
       <div class=" parallax-text center-it page-title text-center">
@@ -16,11 +14,9 @@
         <p>{{article_text | strip_html}}</p>
       </div>
     </div><!--end page header-->
-
     <!-- <div class="container"> -->
     {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
     {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
-
 <div class='container' id="content">
   <div class='space-90'></div>
     {% comment %}
@@ -29,7 +25,6 @@
     {{article_text}}
   </div>
   {% endcomment %}
-
   <!--features tabs start-->
   <div>
     <!-- Nav tabs -->
@@ -42,7 +37,6 @@
         {% endif %}
       {% endfor %}
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade active show">
