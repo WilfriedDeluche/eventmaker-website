@@ -49,7 +49,6 @@ $(function() {
     }
   });
   //smooth scroll
-  $(function() {
     $('.scroll-to a[href*="#"]:not([href="#"])').on("click", function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -62,7 +61,6 @@ $(function() {
         }
       }
     });
-  });
   /*****video popup **/
   $('.video-popup').magnificPopup({
     type: 'iframe'
