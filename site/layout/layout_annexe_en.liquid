@@ -7,7 +7,6 @@
     {% else %}
       <title>{{ event.name }}</title>
     {% endif %}
-
     {{ csrf_meta_tag }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,10 +35,8 @@
     <meta name="twitter:description" content="{{page.seo_description}}">
     <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
-
     <!-- BOOTSTRAP 4  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20747305-6"></script>
     <script>
@@ -85,7 +82,6 @@
     <!--back to top-->
     <a href="#" class="scrollToTop"><i class="ion-ios-arrow-up"></i></a>
     <!--back to top end-->
-
     <!-- Static navbar -->
     <nav class="navbar navbar-toggleable-md navbar-light fixed-top  navbar-transparent clearfix">
       <div class="clearfix"></div>
@@ -121,9 +117,7 @@
     </nav><!--navbar end-->
     {{ content }}
     <!-- </div> -->
-
     <div class="space-70"></div>
-
     <footer class="footer">
       <div class="space-50"></div>
       <div class="container">
@@ -178,21 +172,17 @@
                 <li class="list-inline-item"><a href="{{youtube}}"><i class="ion-social-youtube"></i></a></li>
               {% endif %}
             </ul>
-
           </div>
         </div>
         <div class="row col-md-12 sub-footer">
       <span>{{copyright}}</span>
-
       <div>
       {% for item in menus.menu_sub_footer_en %}
               <a href="{{item.url}}">{{ item.name }}</a>
       {% endfor %}
       </div>
-
       </div>
       </div>
-
       <div class="space-20"></div>
     </footer>
    <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
@@ -202,8 +192,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     {{ 'base.js' | javascript_tag }}
-
-
     <!-- jQuery plugins-->
     {{ 'plugins.js' | javascript_tag }}
     {{ 'template-custom.js' | javascript_tag }}

@@ -206,21 +206,17 @@
                 <li class="list-inline-item"><a href="{{youtube}}"><i class="ion-social-youtube"></i></a></li>
               {% endif %}
             </ul>
-
           </div>
         </div>
         <div class="row col-md-12 sub-footer">
       <span>{{copyright}}</span>
-
       <div>
       {% for item in menus.menu_sub_footer %}
               <a href="{{item.url}}">{{ item.name }}</a>
       {% endfor %}
       </div>
-
       </div>
       </div>
-
       <div class="space-20"></div>
     </footer>
     <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
@@ -231,7 +227,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     {{ 'base.js' | javascript_tag }}
-
     <!-- jQuery plugins-->
     {% comment %}{{ 'plugins.light.js' | javascript_tag }}{% endcomment %}
     {{ 'plugins.js' | javascript_tag }}

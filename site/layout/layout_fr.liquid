@@ -40,7 +40,6 @@
       gtag('js', new Date());
       gtag('config', 'UA-20747305-6');
     </script>
-
     <!-- plugins -->
     {{ 'bundle.css' | stylesheet_tag }}
     <!--main css file-->
@@ -66,12 +65,10 @@
     {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %}Nous utilisons des cookies pour améliorer votre expérience {% endeditable_text %}{% endcapture %}
     {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} en savoir plus {% endeditable_text %}{% endcapture %}
     {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} donnees-personnelles {% endeditable_text %}{% endcapture %}
-
     {% capture title_banner %}{% editable_text "Titre sur bannière", priority: 99 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
     {% capture title_reference %}{% editable_text "Titre section Références", priority: 50 %}Our worldwide partners.{% endeditable_text %}{% endcapture %}
     {% capture text_reference %}{% editable_text "Texte section Références", priority: 49, type: cktext_area %}<p>Over 500,000 Customers worldwide</p>{% endeditable_text %}{% endcapture %}
     {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque efficitur turpis, vitae dictum dolor tristique in.</p>{% endeditable_text %}{% endcapture %}
-
   </head>
   <body>
     <div id="preloader">
@@ -80,7 +77,6 @@
     <!--back to top-->
     <a href="#" class="scrollToTop"><i class="ion-ios-arrow-up"></i></a>
     <!--back to top end-->
-
     <!-- Static navbar -->
     <nav class="navbar navbar-toggleable-md navbar-light fixed-top  navbar-transparent clearfix">
       <div class="clearfix"></div>
@@ -121,14 +117,12 @@
         <h1 class="text-capitalize">{{title_banner}}</h1>
       </div>
     </div><!--end page header-->
-
     <!-- <div class="container"> -->
     {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
     {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
 {% endcomment %}
     {{ content }}
     <!-- </div> -->
-
     <div class='container' id="references">
       <div class="space-90"></div>
       <div class="center-title">
