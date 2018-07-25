@@ -1,4 +1,3 @@
-{% capture html %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,9 +17,9 @@
     <link rel="alternate" hreflang="en" href="{{baseurl}}/en/" />
     <link rel="alternate" hreflang="fr" href="{{baseurl}}" />
     <link rel="alternate" hreflang="x-default" href="{{baseurl}}" />
-    <meta name="og:title"  content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
-    <meta name="og:type"  content="website"/>
-    <meta name="og:url"  content="{{baseurl}}"/>
+    <meta name="og:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:url" content="{{baseurl}}"/>
     <meta name="og:site_name" content="Eventmaker"/>
     <meta name="og:description" content="{{page.seo_description}}"/>
     <meta name="twitter:card" content="summary">
@@ -266,4 +265,3 @@
     </script>
   </body>
 </html>
-{% endcapture %}{{ html | strip_newlines | replace:'	','' | replace:'    ','' | replace:'  ',' ' }}
