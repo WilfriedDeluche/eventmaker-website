@@ -22,7 +22,7 @@
     <link rel="alternate" href="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" hreflang="x-default" />
     <link rel="alternate" hreflang="en" href="{{baseurl}}/en/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}" />
     <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
-    <meta name="og:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
+    <meta name="og:title" content="{% if page.seo_title != "" %}{{ page.seo_title }}{% else %}{{ event.name }}{% endif %}"/>
     <meta name="og:type" content="website"/>
     <meta name="og:url" content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}"/>
     <meta name="og:site_name" content="Eventmaker"/>
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@Eventmakerio">
     <meta name="twitter:url" content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}">
-    <meta name="twitter:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}">
+    <meta name="twitter:title" content="{% if page.seo_title != "" %}{{ page.seo_title }}{% else %}{{ event.name }}{% endif %}">
     <meta name="twitter:description" content="{{page.seo_description}}">
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
     <!-- BOOTSTRAP 4  -->
