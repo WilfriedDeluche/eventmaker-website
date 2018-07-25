@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://events-cms.s3.amazonaws.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://code.ionicframework.com" crossorigin>
     <link rel="preconnect" href="https://code.jquery.com" crossorigin>
@@ -37,7 +38,7 @@
     <meta name="twitter:url" content="{{baseurl}}/{{page.path_name | remove: "__id__"}}{{custom_entry.slug}}">
     <meta name="twitter:title" content="{% if page.seo_title != "" %}{{ page.seo_title }}{% else %}{{ event.name }}{% endif %}">
     <meta name="twitter:description" content="{{page.seo_description}}">
-    <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
+    <link rel="icon" type="image/png" href="{{ 'favicon.png' | image_url }}" />
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
     <!-- BOOTSTRAP 4  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -60,8 +61,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Editable generaux -->
-    {% capture logo %}{% editable_file 'Logo menu', priority: 100 %}{% endeditable_file %}{% endcapture %}
-    {% capture logo_scroll %}{% editable_file 'Logo menu au scroll', priority: 100 %}{% endeditable_file %}{% endcapture %}
     {% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
     {% capture facebook %}{% editable_text "Lien Facebook", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture twitter %}{% editable_text "Lien Twitter", priority: 20 %}{% endeditable_text %}{% endcapture %}
@@ -93,8 +92,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/en">
-          <img data-src="{{logo}}" alt="Eventmaker logo" class="logo logo-default">
-          <img data-src="{{logo_scroll}}" alt="Eventmaker logo" class="logo logo-scroll">
+          <img data-src="{{ 'eventmaker_blanc_transparent.png' | image_url }}" alt="Eventmaker logo" class="logo logo-default">
+          <img data-src="{{ 'eventmaker_noir.png' | image_url }}" alt="Eventmaker logo" class="logo logo-scroll">
         </a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
@@ -162,7 +161,7 @@
           <div class="col-md-5 margin-b-30">
             <div class="col-sm-12 col-md-10" style="padding:0;">{{text_footer}}</div>
             <a href="/home">
-                <img data-src="{{logo}}" alt="Eventmaker logo" class="logo">
+                <img data-src="{{ 'eventmaker_blanc_transparent.png' | image_url }}" alt="Eventmaker logo" class="logo">
               </a>
           </div>
           <div class="col-md-2 col-6">
@@ -225,20 +224,13 @@
     <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e6b43f0d1cea595d9e6bae088/42620318e8df6a88fcb13e77c.js");</script>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    {{ 'base.js' | javascript_tag }}
-    <!-- jQuery plugins-->
-    {{ 'plugins.js' | javascript_tag }}
-    {{ 'template-custom.min.js' | javascript_tag }}
-    <script>
-      window.intercomSettings = {
-        app_id: "sc88gz64",
-        "visit_eventmaker_website" : true // Boolean
-      };
-    </script>
+    {{ 'all.min.js' | javascript_tag }}
+    <!--mailchimp-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e6b43f0d1cea595d9e6bae088/42620318e8df6a88fcb13e77c.js");</script>
+    <!--linkedin -->
     <script type="text/javascript">
       _linkedin_data_partner_id = "87460";
     </script>
@@ -249,14 +241,12 @@
       b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
       s.parentNode.insertBefore(b, s);})();
     </script>
-    <noscript>
-      <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=87460&fmt=gif" />
-    </noscript>
-    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/sc88gz64';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script>
     <script>
       new LazyLoad();
     </script>
+    <noscript>
+      <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=87460&fmt=gif" />
+    </noscript>
   </body>
 </html>
