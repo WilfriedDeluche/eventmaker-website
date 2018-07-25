@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <link rel="preconnect" href="https://events-cms.s3.amazonaws.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://code.ionicframework.com" crossorigin>
     <link rel="preconnect" href="https://code.jquery.com" crossorigin>
@@ -42,7 +43,7 @@
       gtag('config', 'UA-20747305-6');
     </script>
     <!-- plugins -->
-    {{ 'bundle.css' | stylesheet_tag }}
+    {{ 'bundle.min.css' | stylesheet_tag }}
     <!--main css file-->
     {{ 'style.min.css' | stylesheet_tag }}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -228,10 +229,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    {{ 'base.js' | javascript_tag }}
+    {{ 'base-light.min.js' | javascript_tag }}
     <!-- jQuery plugins-->
-    {% comment %}{{ 'plugins.light.js' | javascript_tag }}{% endcomment %}
-    {{ 'plugins.js' | javascript_tag }}
+    {{ 'plugins.light.js' | javascript_tag }}
     {{ 'template-custom.min.js' | javascript_tag }}
     <!--mailchimp-->
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e6b43f0d1cea595d9e6bae088/42620318e8df6a88fcb13e77c.js");</script>
