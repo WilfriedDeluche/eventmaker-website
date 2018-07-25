@@ -1,12 +1,14 @@
-{% assign sorted_articles_service = collections.services | sort: 'rank' %}
-<div class='container'>
-  <div class='space-90'></div>
-  <div class="center-title">
-    <h2>{{custom_entry.titre_en}}</h2>
-    {{custom_entry.text_en}}
-  </div>
-</div>
+{% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
 
+<div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
+  <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
+  <div class=" parallax-text center-it page-title text-center">
+    <h1 class="">{{custom_entry.titre_en}}</h1>
+  </div>
+</div><!--end page header-->
+<!-- <div class="container"> -->
+{% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}{% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
+{% assign sorted_articles_service = collections.services | sort: 'rank' %}
 {% for the_article in sorted_articles_service %}
   {% if custom_entry.sous_collection %}
     {% assign link_to_articles = custom_entry.sous_collection | split: ',' %}

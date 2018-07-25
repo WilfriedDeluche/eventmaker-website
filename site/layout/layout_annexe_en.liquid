@@ -53,6 +53,7 @@
     {{ 'bundle.min.css' | stylesheet_tag }}
     <!--main css file-->
     {{ 'style.min.css' | stylesheet_tag }}
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,13 +71,13 @@
     {% capture rss %}{% editable_text "Lien RSS", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture youtube %}{% editable_text "Lien YouTube", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture copyright %}{% editable_text "Copyright", priority: 15 %}&copy; Copyright 2016 - 2020 {% endeditable_text %}{% endcapture %}
+    {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %} We use cookies to improve your experience {% endeditable_text %}{% endcapture %}
+    {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} learn more {% endeditable_text %}{% endcapture %}
+    {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} en/donnees-personnelles {% endeditable_text %}{% endcapture %}
     {% capture title_banner %}{% editable_text "Titre sur bannière", priority: 99 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
     {% capture title_reference %}{% editable_text "Titre section Références", priority: 50 %}Our worldwide partners.{% endeditable_text %}{% endcapture %}
     {% capture text_reference %}{% editable_text "Texte section Références", priority: 49, type: cktext_area %}<p>Over 500,000 Customers worldwide</p>{% endeditable_text %}{% endcapture %}
     {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque efficitur turpis, vitae dictum dolor tristique in.</p>{% endeditable_text %}{% endcapture %}
-    {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %} We use cookies to improve your experience {% endeditable_text %}{% endcapture %}
-    {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} learn more {% endeditable_text %}{% endcapture %}
-    {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} en/donnees-personnelles {% endeditable_text %}{% endcapture %}
   </head>
   <body>
     <div id="preloader">
@@ -118,42 +119,8 @@
         </div>
       </div>
     </nav><!--navbar end-->
-{% comment %}
-    <div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
-      <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
-      <div class=" parallax-text center-it page-title text-center">
-        <h1 class="text-capitalize">{{title_banner}}</h1>
-      </div>
-    </div><!--end page header-->
-
-    <!-- <div class="container"> -->
-    {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
-    {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
-{% endcomment %}
     {{ content }}
     <!-- </div> -->
-    <div class='container' id="references">
-      <div class="space-90"></div>
-      <div class="center-title">
-        <h2>{{title_reference}}</h2>
-        {{text_reference}}
-      </div>
-      <ul class="row list-unstyled partners-list">
-        {% assign sorted_all_articles = collections.articles | sort:'rank' %}
-        {% assign count_reference = 0 %}
-        {% for article in sorted_all_articles %}
-          {% if article.type == "cas_clients" %}
-            <li class="col-md-2 col-sm-4 col-6">
-              <img data-src="{{article.illustration}}" class="img-fluid" alt="{{article.titre}}">
-            </li>
-            {% assign count_reference = count_reference | plus: 1 %}
-            {% if count_reference >= 48 %}
-              {% break %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
     <div class="space-70"></div>
     <footer class="footer">
       <div class="space-50"></div>

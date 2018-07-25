@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://code.ionicframework.com" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com" crossorigin>
     {% if page.seo_title != "" %}
       <title>{{ page.seo_title }}</title>
     {% else %}
       <title>{{ event.name }}</title>
     {% endif %}
-
     {{ csrf_meta_tag }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="{{page.seo_description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="4-Ml2i_sEJeD2WV_Z9tczAQz0OexYZ72w7UrS799Nz4" />
-
+    {% assign baseurl = event.custom_domain_with_protocol %}
+    <link rel="Canonical" href="{{baseurl}}/en/" />
+    <link rel="alternate" hreflang="en" href="{{baseurl}}/en/" />
+    <link rel="alternate" hreflang="fr" href="{{baseurl}}" />
+    <link rel="alternate" hreflang="x-default" href="{{baseurl}}" />
+    <meta name="og:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:url" content="{{baseurl}}"/>
+    <meta name="og:site_name" content="Eventmaker"/>
+    <meta name="og:description" content="{{page.seo_description}}"/>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Eventmakerio">
+    <meta name="twitter:url" content="{{baseurl}}">
+    <meta name="twitter:title" content="{% if page.seo_title != "" %}<title>{{ page.seo_title }}</title>{% else %}<title>{{ event.name }}</title>{% endif %}">
+    <meta name="twitter:description" content="{{page.seo_description}}">
     <link rel="icon" type="image/png" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.png" />
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/favicon.ico" /><![endif]-->
-
     <!-- BOOTSTRAP 4  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20747305-6"></script>
     <script>
@@ -28,15 +44,10 @@
       gtag('js', new Date());
       gtag('config', 'UA-20747305-6');
     </script>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
     <!-- plugins -->
-    {{ 'bundle.css' | stylesheet_tag }}
+    {{ 'bundle.min.css' | stylesheet_tag }}
     <!--main css file-->
-    {{ 'style.css' | stylesheet_tag }}
-
+    {{ 'style.min.css' | stylesheet_tag }}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,6 +67,9 @@
     {% capture rss %}{% editable_text "Lien RSS", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture youtube %}{% editable_text "Lien YouTube", priority: 20 %}{% endeditable_text %}{% endcapture %}
     {% capture copyright %}{% editable_text "Copyright", priority: 15 %}&copy; Copyright 2016 - 2020 {% endeditable_text %}{% endcapture %}
+    {% capture text_cookie %}{% editable_text "Texte bannière Cookie ", priority: 15 %} We use cookies to improve your experience {% endeditable_text %}{% endcapture %}
+    {% capture text_lien_cookie %}{% editable_text "Texte Lien bannière Cookie ", priority: 15 %} learn more {% endeditable_text %}{% endcapture %}
+    {% capture lien_cookie %}{% editable_text "Lien bannière Cookie ", priority: 15 %} en/donnees-personnelles {% endeditable_text %}{% endcapture %}
     <!-- Editable FR -->
     {% capture title_banner %}{% editable_text "Titre sur bannière", priority: 98 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
     {% capture text_banner %}{% editable_text "Texte sur bannière", priority: 98 %}Create a website that will impress your clients & visitors{% endeditable_text %}{% endcapture %}
@@ -63,7 +77,6 @@
     {% capture text_footer %}{% editable_text "Texte footer", priority: 25, type: cktext_area %}<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque efficitur turpis, vitae dictum dolor tristique in.</p>{% endeditable_text %}{% endcapture %}
     {% capture title_reference %}{% editable_text "Titre section Références", priority: 50 %}Our worldwide partners.{% endeditable_text %}{% endcapture %}
     {% capture text_reference %}{% editable_text "Texte section Références", priority: 49, type: cktext_area %}<p>Over 500,000 Customers worldwide</p>{% endeditable_text %}{% endcapture %}
-
     <style>
       .hero-static-image {
         background: url('{{background_banner}}') no-repeat;
@@ -106,11 +119,13 @@
                 {% endif %}
               </li>
             {% endfor %}
+             <li class="nav-item">
+            <a class="nav-item-mobil nav-link" href="{{baseurl}}" title="Français">FR</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav><!--navbar end-->
-
     <section class="hero-static-image">
       <div class="container">
         <div class="row">
@@ -128,14 +143,11 @@
       <img data-src="{{screenshot_banner}}" alt="Eventmaker banner" class="screenshot-banner img-responsive center-img">
     </section>
     <!--intro section end-->
-
     <!-- <div class="container"> -->
     {% if notice %}<div class="alert alert-success">{{ notice }}</div>{% endif %}
     {% if alert %}<div class="alert alert-danger">{{ alert }}</div>{% endif %}
-
     {{ content }}
     <!-- </div> -->
-
     <div class='container' id="references">
       <div class="space-90"></div>
       <div class="center-title">
@@ -147,7 +159,7 @@
         {% assign count_reference = 0 %}
         {% for article in sorted_all_articles %}
           {% if article.type == "cas_clients" %}
-            <li class="col-md-2">
+            <li class="col-md-2 col-sm-4 col-6">
               <img data-src="{{article.illustration}}" class="img-fluid" alt="{{article.titre}}" />
             </li>
             {% assign count_reference = count_reference | plus: 1 %}
@@ -159,27 +171,36 @@
       </ul>
     </div>
     <div class="space-70"></div>
-
     <footer class="footer">
       <div class="space-50"></div>
       <div class="container">
-        <div class="row vertical-align-child">
-          <div class="col-md-3 margin-b-30">
-            <div class="margin-b-20">
-              <a href="/en">
+        <div class="row vertical-align-child-top">
+          <div class="col-md-5 margin-b-30">
+            <div class="col-sm-12 col-md-10" style="padding:0;">{{text_footer}}</div>
+            <a href="/home">
                 <img data-src="{{logo}}" alt="Eventmaker logo" class="logo">
               </a>
-            </div>
-            <div>{{text_footer}}</div>
           </div>
-          <div class="col-md-2 margin-b-30 margin-t-60">
+          <div class="col-md-2 col-6">
             <ul class="list-unstyled">
               {% for item in menus.menu_principal_en %}
+              {% if forloop.index <= 4 %}
                 <li><a href="{{item.url}}">{{ item.name }}</a></li>
+              {% endif %}
               {% endfor %}
             </ul>
           </div>
-          <div class="col-md-5 margin-b-30 margin-t-60">
+          <div class="col-md-2 col-6">
+            <ul class="list-unstyled">
+              {% for item in menus.menu_principal_en %}
+              {% if forloop.index > 4 %}
+                <li><a href="{{item.url}}">{{ item.name }}</a></li>
+              {% endif %}
+              {% endfor %}
+              <li><a href="{{baseurl}}" title="Français">FR</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
             <ul class="list-inline social">
               {% if facebook != blank %}
                 <li class="list-inline-item"><a href="{{facebook}}"><i class="ion-social-facebook"></i></a></li>
@@ -200,20 +221,30 @@
                 <li class="list-inline-item"><a href="{{youtube}}"><i class="ion-social-youtube"></i></a></li>
               {% endif %}
             </ul>
-            <span>{{copyright}}</span>
           </div>
         </div>
+        <div class="row col-md-12 sub-footer">
+      <span>{{copyright}}</span>
+      <div>
+      {% for item in menus.menu_sub_footer_en %}
+              <a href="{{item.url}}">{{ item.name }}</a>
+      {% endfor %}
+      </div>
+      </div>
       </div>
       <div class="space-20"></div>
     </footer>
+    <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     {{ 'base.js' | javascript_tag }}
-
-    {% comment %}{{ 'tools.js' | javascript_tag }}{% endcomment %}
-
     <!-- jQuery plugins-->
     {{ 'plugins.js' | javascript_tag }}
-    {{ 'template-custom.js' | javascript_tag }}
-    <script src="https://applidget.github.io/vx-assets/orgs/applidget/eventmaker/voxevent/js/main.js"></script>
+    {{ 'template-custom.min.js' | javascript_tag }}
+
     <script>
       window.intercomSettings = {
         app_id: "sc88gz64",
@@ -234,9 +265,6 @@
     <noscript>
       <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=87460&fmt=gif" />
     </noscript>
-    <script type="text/javascript">
-      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"af5efb8344f61f062f0fad793b35b9d7626c571ba5486de1688cc5e0e9b595b1", values:{},ready:function(){$zoho.salesiq.floatbutton.visible('hide');}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script>
     <script>
       new LazyLoad();
