@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://code.ionicframework.com" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com" crossorigin>
     {% if page.seo_title != "" %}
       <title>{{ page.seo_title }}</title>
     {% else %}
@@ -42,7 +47,7 @@
     <!-- plugins -->
     {{ 'bundle.min.css' | stylesheet_tag }}
     <!--main css file-->
-    {{ 'style.css' | stylesheet_tag }}
+    {{ 'style.min.css' | stylesheet_tag }}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -230,6 +235,7 @@
       <div class="space-20"></div>
     </footer>
     <div class="cookie fixed-bottom">{{text_cookie}} <a href="{{baseurl}}/{{lien_cookie}}"><u>{{text_lien_cookie}}</u></a> <a class="btn btn-primary">OK</a></div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -237,7 +243,7 @@
     {{ 'base.js' | javascript_tag }}
     <!-- jQuery plugins-->
     {{ 'plugins.js' | javascript_tag }}
-    {{ 'template-custom.js' | javascript_tag }}
+    {{ 'template-custom.min.js' | javascript_tag }}
 
     <script>
       window.intercomSettings = {
