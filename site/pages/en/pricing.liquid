@@ -1,5 +1,4 @@
 {% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
-
 <div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
   <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
   <div class=" parallax-text center-it page-title text-center">
@@ -46,11 +45,11 @@
             {% assign articlerank = article.rank | plus: 2  %}
             {% assign loop_length = loop_length | plus: 2  %}
             {% assign opacity = articlerank | divided_by: loop_length  %}
-            {% if plan.featured == "best-plan" %}
+            {% if plan.featured == "best-plan" or plan.featured == "bestplan" %}
               {% assign r = 0 %}
               {% assign g = 150 %}
               {% assign b = 136 %}
-            {% elsif plan.featured == "better-plan" %}
+            {% elsif plan.featured == "better-plan" or plan.featured == "betterplan"%}
               {% assign r = 255 %}
               {% assign g = 82 %}
               {% assign b = 82 %}
