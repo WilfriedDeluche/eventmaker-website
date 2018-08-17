@@ -15,9 +15,164 @@
 <div class="space-90"></div>
 <div class="container">
   <div class="row col-md-12">
+    <div>
 
 
-
+<!-- Données personnelles DEBUT-->
+<h1>Traitement des données personnelles</h1>
+<p><br></p>
+<h3>Définitions</h3>
+<p>Dans les CGU, les termes et expressions identifiés par une majuscule ont la signification indiquée ci-après, qu’ils soient employés au singulier ou au pluriel.</p>
+<p>«Evénements» : désigne les manifestations à visée professionnelle (conférences, soirées, forums, colloques, congrès, salons etc.) organisés par l’Organisateur et auxquels participent les Invités;</p>
+<p>«Invité» : désigne toute personne invitée par l’Organisateur à s’inscrire et participer à l’Evénement en utilisant le Service;</p>
+<p>«Organisateur» : désigne la personne morale organisant un Evénement, auquel elle invite des Invités en utilisant le Service;</p>
+<p>«Service» : désigne les logiciels en ligne d’APPLIDGET SASet les applications associées.</p>
+<p>«Données» : désigne les informations personnelles collectées en ligne sur les invités, chargées dans le logiciel d’APPLIDGET SAS par le client au moyen d’imports automatisés, ou chargées par le client au moyen de l’API.</p>
+<p>«API» : interface de programmation Machine à Machine proposé par Applidget pour l’utilisation de ses logiciels et documentées sur http://developers.eventmaker.io/</p>
+<p>«Prestation» : l’ensemble du service commandé par l’Organisateur à Applidget et couvert par les CGU.</p>
+<p>«Traitement» : l’ensemble du procédé de collecte et d’utilisation des informations personnelles des invités sur les plateformes Applidget pour l’organisation de l’événement de l’organisateur, à titre indicatif en voici la liste :</p>
+<ul>
+  <li>Inviter des “invités”
+<ul>
+  <li> Imports des listes d’invitation </li>
+  <li>Envois des email d’invitations </li>
+</ul>
+</li>
+  <li>Inscrire des “invités”
+<ul>
+  <li> Formulaires d’inscription </li>
+  <li>Imports de de listes de participants </li>
+  <li>Inscription via API </li>
+  <li> Récolter des paiements en ligne </li>
+</ul>
+</li>
+  <li>Confirmer des “Invités”
+<ul>
+  <li>Envoyer des emails de confirmation d’inscription </li>
+  <li>Publier des documents de confirmation d’inscription </li>
+  <li>Publier des documents d’accréditation ( Badges) avec codes d’identification </li>
+</ul>
+</li>
+  <li>Contrôler des “invités”
+<ul>
+  <li>Scanner les codes d’identification des invités pour les identifier </li>
+  <li>Vérifier les autorisation d’accès. </li>
+</ul>
+</li>
+  <li>Notifier l’organisateur
+<ul>
+  <li>A chaque inscription d’invité </li>
+  <li>A chaque passage d’invité </li>
+</ul>
+</li>
+  <li>Publier les données des invités
+<ul>
+  <li>Publier sur le site de l’événement les informations des invités </li>
+</ul>
+</li>
+  <li>Ouvrir des espaces utilisateurs pour les invités
+<ul>
+  <li>Modification des données publiées </li>
+</ul>
+</li>
+  <li>Faire participer les invités
+<ul>
+  <li>Enregistrer et publier les commentaires des invités </li>
+  <li>Enregistrer et publier les votes des invités </li>
+  <li>Enregistrer et publier en ligne les photos des invités </li>
+</ul>
+</li>
+  <li>Discuter avec les invités
+<ul>
+<li> Récupérer les messages de conversation via le chatbot DoYouBot </li>
+<li>Répondre aux messages</li>
+<li>Stocker les messages. </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3>Informations relatives aux traitements</h3>
+<h4>a) Respect des principes français et européen en matière de protection des données personnelles</h4>
+<p>Les Parties s’engagent à collecter et à traiter toute donnée personnelle en conformité avec toute réglementation en vigueur applicable au traitement de ces données, et notamment à la loi n°78-17 du 6 janvier 1978 modifiée.</p>
+<p>Au regard de cette loi, l’Organisateur est responsable du Traitement réalisé au titre du Contrat.</p>
+<h4>b) Existence d’un système de remontée des plaintes et des failles de sécurité</h4>
+<p>Le Prestataire s’engage à communiquer au Client la survenance de toute faille de sécurité ayant des conséquences directes ou indirectes sur le Traitement, ainsi que toute plainte qui lui serait adressée par tout individu concerné par le Traitement réalisé
+  au titre du Contrat. Cette communication devra être effectuée dans les plus brefs délais et au maximum quarante-huit heures après la découverte de la faille de sécurité ou suivant réception d’une plainte.</p>
+<h4>c) Moyens de traitement</h4>
+<p>Afin d’exécuter la Prestation, le Prestataire traitera les Données par le biais des moyens de traitement suivants :</p>
+<ul>
+  <li> Logiciel en ligne Eventmaker.io (Invitation, Inscription, badges, contrôle d’accès) </li>
+  <li> Logiciel en ligne Voxevent (Publication, espaces personnels, participation des invités) </li>
+  <li> Logiciel en ligne invitations (Invitations partenaires) </li>
+  <li> Logiciel en ligne doyoubot </li>
+</ul>
+<p>Ces logiciels sont des applications Web développées en Ruby On Rails, avec des bases de données MongoDB.</p>
+<ul>
+  <li>Application iOS Eventmaker Checkin (Liste d’émargement et contrôle d’accès)</li>
+  <li>Application iOS et Android MobiNetwork (Gestion de contacts pour les partenaires)</li>
+</ul>
+<h4>d) Sous-traitance</h4>
+<p>Le Prestataire informe le Client, qui l’accepte, qu’il fera sous-traiter l’exécution du Contrat par les sous-contractants suivants :</p>
+<ul>
+  <li> Amazon Web Service (Infrastructure as a Service, cloud) </li>
+  <li> Mailjet (emailing) </li>
+  <li> Zoho (facturation, CRM) </li>
+  <li> Ingenico (paiement) </li>
+  <li> Stripe (paiement) </li>
+  <li> Twilio (SMS) </li>
+  <li> Intercom (Live Chat) </li>
+  <li> Essendex (SMS)</li>
+</ul>
+<p>Le Prestataire restera seul responsable vis-à-vis du Client de l’exécution de ses obligations contractuelles résultant de ce document.</p>
+<h4>e) Existence de procédures simples permettant de respecter les droits des personnes concernées vis-à-vis de leurs données</h4>
+<p>Le Prestataire s’engage à coopérer avec le Client et à l’aider à satisfaire aux exigences légales relatives à la protection des données à caractère personnel qui incombent à ce dernier, afin notamment de respecter les droits des personnes concernées
+  en vertu des articles 38 à 43 de la loi n°78-17 du 6 janvier 1978 modifiée.</p>
+  <p><br></p>
+<h3>Garanties mises en œuvre par le prestataire</h3>
+<h4>a) Durée de conservation des données limitée et raisonnable au regard des finalités pour lesquelles les données ont été collectées</h4>
+<p>Le Prestataire offre au client la possibilité de supprimer à tout moment les Données sur ses interfaces. Le prestataire s’engage en tout état de cause à ne pas les conserver plus de 30 mois après la fin de l’événement, ou plus tôt si l’organisateur
+  le lui demande.</p>
+<h4>b) Destruction et/ou restitution des données</h4>
+<p>A tout moment pendant le contrat et pour une durée de 3 mois suite à la rupture du contrat, le prestataire met à la disposition de l’organisateur la possibilité de récupérer ses données selon les formats d’exports et d’API disponibles dans le logiciel
+  d’Applidget. </p>
+<h4>c) Devoir de coopération avec les autorités de protection des données compétentes</h4>
+<p>Les Parties s’engagent à coopérer avec les autorités de protection des données compétentes, notamment en cas de demande d’information qui pourrait leur être adressée ou en cas de contrôle.</p>
+<h4>d) Audits</h4>
+<p>Le Client se réserve le droit de procéder à toute vérification qui lui paraîtrait utile pour constater le respect par le Prestataire de ses obligations au titre du Contrat, notamment par le biais d’un audit. Le Prestataire s’engage à répondre aux demandes
+  d’audit du Client et effectuées par le Client lui-même ou par un tiers de confiance qu’il aura sélectionné, reconnu en tant qu’auditeur indépendant, c'est-à-dire indépendant du Prestataire, ayant une qualification adéquate, et libre de fournir les
+  détails de ses remarques et conclusion d’audit au Client. Les audits doivent permettre une analyse du respect du présent Contrat et de la loi Informatique et Libertés, notamment : par la vérification de l’ensemble des mesures de sécurité mises en
+  œuvre par le Prestataire, par la vérification des journaux de localisation des Données, de copie et de suppression des Données, par l’analyse des mesures mises en place pour supprimer les Données, pour prévenir toutes transmissions illégales de Données
+  à des juridictions non adéquates ou pour empêcher le transfert de Données vers un pays non autorisé par le Client. L’audit doit enfin pouvoir permettre de s’assurer que les mesures de sécurité et de confidentialité mises en place ne peuvent être contournées
+  sans que cela ne soit détecté et notifié.</p>
+<p>Le temps du prestataire consacré au suivi de l’audit et aux réponses effectuées sera comptabilisé par Applidget et facturé à l’organisateur au tarif de 800 € HT la journée.</p>
+<p><br></p>
+<h3>Localisation et transferts</h3>
+<h4>a) Destinataires</h4>
+<p>Le Prestataire devra fournir au Client toute information utile concernant les destinataires des Données, afin que ce dernier soit en mesure d’informer les personnes concernées par le Traitement et de répondre à leurs demandes d’accès en vertu des articles
+  32 et 39 de la loi n°78-17 du 6 janvier 1978 modifiée.</p>
+<h4>b) Indication claire et exhaustive des pays hébergeant les serveurs du prestataire</h4>
+<p>Le Prestataire informe le Client que les Données seront hébergées dans des serveurs localisés dans les pays suivants : Irlande.</p>Formalités auprès de la CNIL
+<p>Le Client s’acquittera des formalités déclaratives relatives au Traitement auprès des autorités de protection des données à caractère personnel compétentes. Le Prestataire s’engage à lui fournir toute information utile afin de procéder à ces formalités.
+  </p>
+  <p><br></p>
+<h3>Sécurité et confidentialité</h3>
+<h4>a) Indication des obligations incombant au prestataire en matière de sécurité des données et précision qu’il ne peut agir que sur instruction du client</h4>
+<p>Dans le cadre de l’exécution du Contrat, le Prestataire agira uniquement sur les instructions du Client. A ce titre, le Prestataire s’engage à ne pas utiliser les Données pour son propre compte ou pour celui d’un tiers. Conformément à l’article 34 de
+  la loi Informatique et Libertés modifiée, le Prestataire s’engage à prendre toutes précautions utiles afin de préserver la sécurité des informations et notamment de les protéger contre toute destruction accidentelle ou illicite, perte accidentelle,
+  altération, diffusion ou accès non autorisés, notamment lorsque le Traitement comporte des transmissions de données dans un réseau, ainsi que contre toute autre forme de traitement illicite ou communication à des personnes non autorisées </p>
+<h4>b) Politique de sécurité et mesures de sécurité</h4>
+<p>Le Prestataire fournit au Client la politique de sécurité des systèmes d’information qu’il a mise en place et l’informe des évolutions de cette politique. Il tient à la disposition du client les documents relatifs à la sécurité de ses données comprenant
+  notamment la documentation technique nécessaire, les analyses de risques produites et la liste détaillée des mesures de sécurité mises en œuvres. Les supports informatiques et documents fournis par le Client au Prestataire restent la propriété du
+  Client. Les données contenues dans ces supports et documents sont strictement couvertes par le secret professionnel (article 226-13 du code pénal), il en va de même pour toutes les données dont le Prestataire prend connaissance à l’occasion de l’exécution
+  du Contrat. Le Prestataire s’engage à respecter les obligations suivantes et à les faire respecter par son personnel :</p>
+<ul>
+  <li>ne prendre aucune copie des documents et supports d’informations qui lui sont confiés, à l’exception de celles nécessaires à l’exécution de la présente prestation prévue au Contrat avec l’accord préalable du Client;</li>
+  <li>ne pas utiliser les documents et informations traités à des fins autres que celles spécifiées au présent contrat;</li>
+  <li>ne pas divulguer ces documents ou informations à d’autres personnes, qu’il s’agisse de personnes privées ou publiques, physiques ou morales;</li>
+  <li>prendre toutes mesures permettant d’éviter toute utilisation détournée ou frauduleuse des fichiers informatiques en cours d’exécution du contrat.</li>
+</ul>
+<!-- Données personnelles FIN-->
+</div>
   </div>
   </div>
   <div class='space-60'></div>
