@@ -1,5 +1,6 @@
 {% capture background_banner %}{% editable_file "Bannière", priority: 100 %}{% endeditable_file %}{% endcapture %}
 {% capture title_banner %}{% editable_text "Titre sur bannière", priority: 99 %}Perfect choice for your web and mobile apps.{% endeditable_text %}{% endcapture %}
+{% capture text_personnal_data %}{% editable_text "Texte Données personnelles", priority: 25, type: cktext_area %}Données personnelles{% endeditable_text %}{% endcapture %}
 
 <div class="dzsparallaxer auto-init" data-options='{   direction: "reverse"}' style="height: 450px;">
       <div class="divimage dzsparallaxer--target " style="width: 101%; height: 600px; background-image: url('{{background_banner}}')"></div>
@@ -15,9 +16,11 @@
 <div class="space-90"></div>
 <div class="container">
   <div class="row col-md-12">
-
-
-
+    <div>
+<!-- Données personnelles DEBUT-->
+{{ text_personnal_data }}
+<!-- Données personnelles FIN-->
+</div>
   </div>
   </div>
   <div class='space-60'></div>
